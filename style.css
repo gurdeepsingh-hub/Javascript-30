@@ -1,0 +1,68 @@
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+}
+.frame{
+    display: grid;
+    grid: 15em 100%/100vw ;
+    margin: 0;
+    align-items: center;
+}
+
+.header{
+    background: darksalmon;
+    height: 15em;
+    display: grid;
+
+}
+.index{
+    background-color: aquamarine;
+    display: grid;
+    grid: auto/ repeat(3, 33vw);
+    justify-self: center;
+}
+.challange-frame{
+    width: 25vw;
+    height: 25vw;
+    margin: 10px;
+    align-self: center;
+    justify-self: center;
+    background-color: white;
+    display: grid;
+    grid :2em auto 1em/100%;
+    border: 2px solid black;
+}
+/*posts*/
+.head{
+    background-color: brown;
+    border-bottom: 2px  solid black;
+}
+.click{
+    background-color: rgb(54, 54, 54);
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+.click:hover{
+    cursor: pointer;
+}
+.pic{
+    object-position: center;
+    background-size: cover;
+}
+
+/*header*/
+.banner{
+    border: 2px solid black;
+    width: 50vw;
+    height: 20vh;
+    align-self: center;
+    justify-self: center;
+    background: white;
+}
+.desc{
+    background-color: white;
+    border-top: 2px solid black;
+}
