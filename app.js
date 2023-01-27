@@ -4,14 +4,14 @@ const challenges = [
     title: "JS Drum Kit",
     desc: "When a user presses a certain key, an audio will be played accordingly.",
     image: "./Images/1.png",
-    demo: "",
+    demo: "https://gurdeepsingh-hub.github.io/Javascript-30/01%20-%20JavaScript%20Drum%20Kit/",
   },
   {
     id: 2,
     title: "CSS + JS Clock",
     desc: "Pointers should rotate according to the current time, yeah, just like a real clock.",
     image: "./Images/2.png",
-    demo: "",
+    demo: "https://gurdeepsingh-hub.github.io/Javascript-30/02%20-%20JS%20and%20CSS%20Clock/",
   },
   {
     id: 3,
