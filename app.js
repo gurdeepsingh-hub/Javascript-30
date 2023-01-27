@@ -237,7 +237,9 @@ challenges.forEach((Element) => {
   let buttons = document.createElement("button");
   buttons.classList.add("click");
   buttons.innerText = "Demo";
-  buttons.onclick = Element.demo;
+  buttons.onclick = () => {
+    location.href = Element.demo;
+  };
 
   div.append(head);
   div.append(image);
