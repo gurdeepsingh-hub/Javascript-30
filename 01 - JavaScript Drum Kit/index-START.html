@@ -60,12 +60,10 @@
         let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
         let div = document.querySelector(`div[data-key="${e.keyCode}"]`);
 
-        // console.log(audio, e.keyCode);
         if (audio) {
-          div.classList.add("playing");
+          div.classList.toggle("playing");
           audio.currentTime = 0;
           audio.play();
-          removeEffect(e);
         }
       };
 
