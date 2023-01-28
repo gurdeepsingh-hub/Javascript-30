@@ -17,14 +17,14 @@ const challenges = [
     id: 3,
     title: "CSS Variables",
     desc: "When a user drags or picks an option, the CSS variables should update accordingly.",
-    image: "./assets/image_3.jpg",
+    image: "./Images/3.png",
     demo: "https://gurdeepsingh-hub.github.io/Javascript-30/03%20-%20CSS%20Variables/",
   },
   {
     id: 4,
     title: "Array Cardio 1",
     desc: "Strengthen your JavaScript skills by using those array methods!",
-    image: "./assets/image_4.jpg",
+    image: "./Images/4.png",
     demo: "https://gurdeepsingh-hub.github.io/Javascript-30/04%20-%20Array%20Cardio%20Day%201/",
   },
   {
