@@ -230,9 +230,10 @@ challenges.forEach((Element) => {
   head.classList.add("head");
   head.innerText = Element.title;
 
-  let image = document.createElement("div");
+  let image = document.createElement("img");
   image.classList.add("pic");
-  image.style.backgroundImage = `url(${Element.image})`;
+  image.src = Element.image;
+  image.alt = "Coming Soon";
 
   let buttons = document.createElement("button");
   buttons.classList.add("click");
