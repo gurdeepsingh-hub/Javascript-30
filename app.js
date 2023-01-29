@@ -31,35 +31,35 @@ const challenges = [
     id: 5,
     title: "Flex Panel Gallery",
     desc: "When a user clicks on an image, the image will expand and some text will appear.",
-    image: "./assets/image_5.jpg",
+    image: "",
     demo: "",
   },
   {
     id: 6,
     title: "Ajax Type Ahead",
     desc: "When a user type in a certain word, a list of cities or states that contain the word wil be displayed. Plus, the key word will be highlighted with yellow background.",
-    image: "./assets/image_6.jpg",
+    image: "",
     demo: "",
   },
   {
     id: 7,
     title: "Array Cardio 2",
     desc: "Strengthen your JavaScript skills by using those array methods!",
-    image: "./assets/image_7.jpg",
+    image: "",
     demo: "",
   },
   {
     id: 8,
     title: "HTML5 Canvas",
     desc: "Pointers should rotate according to the current time, yeah, just like a real clock.",
-    image: "./assets/image_8.jpg",
+    image: "",
     demo: "",
   },
   {
     id: 9,
     title: "Dev Tools Domination",
     desc: "Master Dev Tools to make your developer life a bit easier!",
-    image: "./assets/image_9.jpg",
+    image: "",
     demo: "",
   },
   {
@@ -232,12 +232,15 @@ challenges.forEach((Element) => {
 
   let image = document.createElement("img");
   image.classList.add("pic");
-  image.src = Element.image;
+  image.src = Element.image.includes("./Images")
+    ? Element.image
+    : "./Images/Default.jpeg";
   image.alt = "Coming Soon";
 
   let buttons = document.createElement("button");
   buttons.classList.add("click");
   buttons.innerText = "Demo";
+  buttons.disabled = Element.demo == "";
   buttons.onclick = () => {
     location.href = Element.demo;
   };
