@@ -62,13 +62,18 @@ body {
   background-size: cover;
   border: 2px solid black;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 800px) {
   .index {
     background-color: aquamarine;
     display: grid;
-    grid: 100vw / 100%;
+    width: 100%;
+    align-self: baseline;
+    justify-content: center;
+    grid: auto/ repeat(auto-fill, 100%);
+    justify-self: center;
   }
   .challange-frame {
     width: 75vw;
@@ -80,16 +85,19 @@ body {
     grid: 2em auto 1.5em/100%;
   }
 }
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 800px) {
   .index {
     background-color: aquamarine;
     display: grid;
-    grid: auto/ repeat(3, 33.3vw);
+    width: 100%;
+    align-self: baseline;
+    justify-content: center;
+    grid: auto/ repeat(auto-fill, 400px);
     justify-self: center;
   }
   .challange-frame {
-    width: 25vw;
-    height: 25vw;
+    width: 80%;
+    height: 80%;
     margin: 10px;
     align-self: center;
     justify-self: center;
