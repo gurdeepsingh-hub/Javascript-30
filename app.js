@@ -30,16 +30,16 @@ const challenges = [
   {
     id: 5,
     title: "Flex Panel Gallery",
-    desc: "When a user clicks on an image, the image will expand and some text will appear.",
-    image: "",
-    demo: "",
+    desc: "When a user hovers on an image, the image will expand and some text will appear.",
+    image: "./Images/5.png",
+    demo: "https://gurdeepsingh-hub.github.io/Javascript-30/05%20-%20Flex%20Panel%20Gallery/",
   },
   {
     id: 6,
     title: "Ajax Type Ahead",
     desc: "When a user type in a certain word, a list of cities or states that contain the word wil be displayed. Plus, the key word will be highlighted with yellow background.",
-    image: "",
-    demo: "",
+    image: "./Images/6.png",
+    demo: "https://gurdeepsingh-hub.github.io/Javascript-30/06%20-%20Type%20Ahead/",
   },
   {
     id: 7,
