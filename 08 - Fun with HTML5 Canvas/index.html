@@ -6,6 +6,7 @@
   </head>
   <body>
     <canvas id="draw" width="800" height="800"></canvas>
+    <input type="range" name="line-width" id="line-width" />
     <script>
       let globalCompositeOperation = [
         {
@@ -112,17 +113,20 @@
       ];
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
+      const lineWidth = document.querySelector("#line-width");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight - 100;
-      ctx.strokeStyle = "#bada55";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
 
-      ctx.lineWidth = 100;
+      ctx.lineWidth = lineWidth.value;
       let isDrawing = false;
       let lastX = 0;
       let lastY = 0;
       let hue = 0;
+      lineWidth.addEventListener("change", () => {
+        ctx.lineWidth = lineWidth.value;
+      });
       globalCompositeOperation.forEach((Element) => {
         let bttn = document.createElement("button");
         bttn.onclick = function () {
@@ -132,6 +136,7 @@
         bttn.title = Element.desc;
         document.body.append(bttn);
       });
+
       function draw(e) {
         if (!isDrawing) return;
 
