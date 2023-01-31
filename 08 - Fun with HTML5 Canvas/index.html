@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+      let globalCompositeOperation = [
+        {
+          name: "source-over",
+          desc: "This is the default setting and draws new shapes on top of the existing canvas content.",
+        },
+        {
+          name: "source-in",
+          desc: "The new shape is drawn only where both the new shape and the destination canvas overlap. Everything else is made transparent.",
+        },
+        {
+          name: "source-out",
+          desc: "The new shape is drawn where it doesn't overlap the existing canvas content.",
+        },
+        {
+          name: "source-atop",
+          desc: "The new shape is only drawn where it overlaps the existing canvas content.",
+        },
+        {
+          name: "destination-over",
+          desc: "New shapes are drawn behind the existing canvas content.",
+        },
+        {
+          name: "destination-in",
+          desc: "The existing canvas content is kept where both the new shape and existing canvas content overlap. Everything else is made transparent.",
+        },
+        {
+          name: "destination-out",
+          desc: "The existing content is kept where it doesn't overlap the new shape.",
+        },
+        {
+          name: "destination-atop",
+          desc: "The existing canvas is only kept where it overlaps the new shape. The new shape is drawn behind the canvas content.",
+        },
+        {
+          name: "lighter",
+          desc: "Where both shapes overlap the color is determined by adding color values.",
+        },
+        { name: "copy", desc: "Only the new shape is shown." },
+        {
+          name: "xor",
+          desc: "Shapes are made transparent where both overlap and drawn normal everywhere else.",
+        },
+        {
+          name: "multiply",
+          desc: "The pixels of the top layer are multiplied with the corresponding pixel of the bottom layer. A darker picture is the result.",
+        },
+        {
+          name: "screen",
+          desc: "The pixels are inverted, multiplied, and inverted again. A lighter picture is the result (opposite of multiply)",
+        },
+        {
+          name: "overlay",
+          desc: "A combination of multiply and screen. Dark parts on the base layer become darker, and light parts become lighter.",
+        },
+        {
+          name: "darken",
+          desc: "Retains the darkest pixels of both layers.",
+        },
+        {
+          name: "lighten",
+          desc: "Retains the lightest pixels of both layers.",
+        },
+        {
+          name: "color-dodge",
+          desc: "Divides the bottom layer by the inverted top layer.",
+        },
+        {
+          name: "color-burn",
+          desc: "Divides the inverted bottom layer by the top layer, and then inverts the result.",
+        },
+        {
+          name: "hard-light",
+          desc: "A combination of multiply and screen like overlay, but with top and bottom layer swapped.",
+        },
+        {
+          name: "soft-light",
+          desc: "A softer version of hard-light. Pure black or white does not result in pure black or white.",
+        },
+        {
+          name: "difference",
+          desc: "Subtracts the bottom layer from the top layer or the other way round to always get a positive value.",
+        },
+        {
+          name: "exclusion",
+          desc: "Like difference, but with lower contrast.",
+        },
+        {
+          name: "hue",
+          desc: "Preserves the luma and chroma of the bottom layer, while adopting the hue of the top layer.",
+        },
+        {
+          name: "saturation",
+          desc: "Preserves the luma and hue of the bottom layer, while adopting the chroma of the top layer.",
+        },
+        {
+          name: "color",
+          desc: "Preserves the luma of the bottom layer, while adopting the hue and chroma of the top layer.",
+        },
+        {
+          name: "luminosity",
+          desc: "Preserves the hue and chroma of the bottom layer, while adopting the luma of the top layer.",
+        },
+      ];
+      const canvas = document.querySelector("#draw");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 100;
+      ctx.strokeStyle = "#bada55";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+
+      ctx.lineWidth = 100;
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+      let hue = 0;
+      globalCompositeOperation.forEach((Element) => {
+        let bttn = document.createElement("button");
+        bttn.onclick = function () {
+          ctx.globalCompositeOperation = `${Element.name}`;
+        };
+        bttn.innerText = Element.name;
+        bttn.title = Element.desc;
+        document.body.append(bttn);
+      });
+      function draw(e) {
+        if (!isDrawing) return;
+
+        ctx.strokeStyle = `hsl(${hue},100%,50%)`;
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        hue++;
+      }
+
+      function start(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mousedown", start);
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseleave", () => (isDrawing = false));
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>
